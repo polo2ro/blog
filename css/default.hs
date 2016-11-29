@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 import Clay
+import qualified Clay.Media as Media
 import Prelude (IO)
 
 
@@ -21,6 +22,39 @@ baseLink = do
     color panelBgColor
     fontWeight bold
     textDecoration none
+
+-- One and two column layouts.
+
+oneColumn :: Css
+oneColumn =
+  do width (px 550)
+     boxSizing borderBox
+
+oneOrTwoColumns :: Css
+oneOrTwoColumns =
+  do query Clay.all [Media.minWidth 800] twoColumns
+     query Clay.all [Media.maxWidth 800] oneColumn
+
+twoColumns :: Css
+twoColumns =
+
+  do -- Both columns are have the size of their parent.
+     div <?
+       do width      (pct 50)
+          boxSizing  borderBox
+
+     -- Float first child to the left, second to the right.
+     column "1" floatLeft  paddingRight
+     column "2" floatRight paddingLeft
+
+     -- Don't float outside the section.
+     br ? clear both
+
+  where column i side pad =
+          div # nthChild i <?
+            do float  side
+               pad    (px 30)
+
 
 htmlbody :: Css
 htmlbody = body ? do
@@ -84,9 +118,9 @@ htmlbody = body ? do
         fontSize    (px 14)
         fontStyle   italic
 
+    ".two-col" ? oneOrTwoColumns
+
     ".social" ? do
-        width       (em 10)
-        float       floatRight
         textAlign   center
         backgroundColor  "#fff"
         padding     (em 1) contentSideMargin (em 1) contentSideMargin
