@@ -16,6 +16,7 @@ softBgColor = "#f2f1e7"
 
 
 contentSideMargin = em 0.7
+strokeWidth = px 2
 
 baseLink :: Css
 baseLink = do
@@ -66,19 +67,16 @@ htmlbody = body ? do
     minWidth    (px 600)
     fontFamily  ["Questrial"] [sansSerif]
 
-    "#header" ? borderTop    solid (px 8) "#c9deec"
-
     nav ? do
         background      panelBgColor
-        borderBottom    solid (px 8) flashy2BgColor
+        borderBottom    solid strokeWidth flashy2BgColor
         padding         (em 3) contentSideMargin (em 0.5) (em 0)
         textAlign       (alignSide sideRight)
         a ? do
             baseLink
             color           textPanelColor
-            marginLeft      (em 2)
-            textTransform   uppercase
-            fontSize        (px 24)
+            marginRight     (em 1.5)
+            fontSize        (px 20)
 
 
     "#logo" ** a ? do
@@ -97,7 +95,7 @@ htmlbody = body ? do
 
 
     section # "#footer" ? do
-        borderTop   solid (px 8) flashy1BgColor
+        borderTop   solid strokeWidth flashy1BgColor
         color       "#555"
         fontSize    (px 12)
         padding     (em 2) contentSideMargin (em 7) contentSideMargin
