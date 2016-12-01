@@ -6,7 +6,7 @@ import Prelude (IO)
 
 bgColor, textColor, panelBgColor, textPanelColor, softBgColor :: Color
 
-bgColor = "#cbc2a5"
+bgColor = "#f4f4f4"
 textColor = "#383838"
 panelBgColor = "#527883"
 textPanelColor = "#FFFFFF"
@@ -100,7 +100,6 @@ htmlbody = body ? do
         fontSize    (px 12)
         padding     (em 2) contentSideMargin (em 7) contentSideMargin
         textAlign   (alignSide sideRight)
-        background  (vGradient (setA 0.2 flashy1BgColor) (setA 0 flashy1BgColor))
 
     h1 ? fontSize (px 24)
 

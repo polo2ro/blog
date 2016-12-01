@@ -10,11 +10,19 @@ main = hakyll $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
-    {-
-    match "css/*" $ do
+
+    match (fromList [
+        "bower_components/font-awesome/css/font-awesome.min.css",
+        "bower_components/pills/dist/pills.min.css"
+        ]) $ do
         route   idRoute
-        compile compressCssCompiler
-    -}
+        compile copyFileCompiler
+
+    match "bower_components/font-awesome/fonts/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
+
     match "css/*.hs" $ do
         route   $ setExtension "css"
         compile $ getResourceString >>= withItemBody (unixFilter "runghc" [])
