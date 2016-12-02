@@ -47,7 +47,7 @@ extra-deps:
 - filemanip-0.3.6.3
 - fsnotify-0.2.1
 - haddock-library-1.4.2
-- hakyll-4.8.3.2
+- hakyll-4.9.1.0
 - highlighting-kate-0.6.3
 - hinotify-0.3.8.1
 - hourglass-0.2.10
