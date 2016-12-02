@@ -87,7 +87,12 @@ htmlbody = body ? do
 
     ".social" ? do
         textAlign   center
-        a # ".icon" ? do
+        img ? do
+            sym borderRadius (px 3)
+            border solid (px 1) flashy2BgColor
+            sym padding (px 3)
+            backgroundColor "#fff"
+        ".icons" |> a ? do
             fontSize    (px 20)
             color       flashy2BgColor
             display     inlineBlock
@@ -95,7 +100,7 @@ htmlbody = body ? do
             marginRight (px 10)
             position    relative
             transitions  [("color", sec 0.2, ease, sec 0), ("background-color", sec 0.2, ease, sec 0)]
-        a # ".icon" # hover ? do
+        ".icons" |> a # hover ? do
             color "#000"
             after & do
                 right       (pct (- 50))
