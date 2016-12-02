@@ -13,6 +13,8 @@ extra-deps:
 - SHA-1.6.4.2
 - aeson-0.11.2.1
 - aeson-pretty-0.8.2
+- ansi-terminal-0.6.2.3
+- ansi-wl-pprint-0.6.7.3
 - asn1-encoding-0.9.4
 - asn1-parse-0.9.4
 - asn1-types-0.3.2
@@ -64,6 +66,7 @@ extra-deps:
 - monad-control-1.0.1.0
 - old-locale-1.0.0.7
 - old-time-1.1.0.3
+- optparse-applicative-0.13.0.0
 - pandoc-1.17.2
 - pandoc-citeproc-0.10.2.2
 - pandoc-types-1.16.1.1

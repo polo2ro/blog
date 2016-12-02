@@ -4,19 +4,18 @@ import qualified Clay.Media as Media
 import Prelude (IO)
 
 
-bgColor, textColor, panelBgColor, textPanelColor, softBgColor :: Color
+bgColor, textColor, panelBgColor, textPanelColor, flashy1BgColor, flashy2BgColor :: Color
 
-bgColor = "#f4f4f4"
+bgColor = "#dfe3e9"
 textColor = "#383838"
 panelBgColor = "#527883"
 textPanelColor = "#FFFFFF"
 flashy1BgColor = "#efd117"
 flashy2BgColor = "#f07135"
-softBgColor = "#f2f1e7"
 
 
 contentSideMargin = em 0.7
-strokeWidth = px 2
+strokeWidth = px 4
 
 baseLink :: Css
 baseLink = do
@@ -24,37 +23,6 @@ baseLink = do
     fontWeight bold
     textDecoration none
 
--- One and two column layouts.
-
-oneColumn :: Css
-oneColumn =
-  do width (px 550)
-     boxSizing borderBox
-
-oneOrTwoColumns :: Css
-oneOrTwoColumns =
-  do query Clay.all [Media.minWidth 800] twoColumns
-     query Clay.all [Media.maxWidth 800] oneColumn
-
-twoColumns :: Css
-twoColumns =
-
-  do -- Both columns are have the size of their parent.
-     div <?
-       do width      (pct 50)
-          boxSizing  borderBox
-
-     -- Float first child to the left, second to the right.
-     column "1" floatLeft  paddingRight
-     column "2" floatRight paddingLeft
-
-     -- Don't float outside the section.
-     br ? clear both
-
-  where column i side pad =
-          div # nthChild i <?
-            do float  side
-               pad    (px 30)
 
 
 htmlbody :: Css
@@ -63,21 +31,22 @@ htmlbody = body ? do
     color       textColor
     fontSize    (px 16)
     margin      (px 0) auto (px 0) auto
-    maxWidth    (px 1000)
-    minWidth    (px 600)
     fontFamily  ["Questrial"] [sansSerif]
 
-    nav ? do
-        background      panelBgColor
-        borderBottom    solid strokeWidth flashy2BgColor
-        padding         (em 3) contentSideMargin (em 0.5) (em 0)
-        textAlign       (alignSide sideRight)
-        a ? do
-            baseLink
-            color           textPanelColor
-            marginRight     (em 1.5)
-            fontSize        (px 20)
-
+    "#header" ? do
+        background  (setA 0.6 panelBgColor)
+        nav ? do
+            background      panelBgColor
+            borderBottom    solid strokeWidth flashy2BgColor
+            padding         (em 3) contentSideMargin (em 0.5) (em 0)
+            textAlign       (alignSide sideRight)
+            a ? do
+                baseLink
+                color           textPanelColor
+                marginRight     (em 1.5)
+                fontSize        (px 20)
+                transitions     [("color", sec 0.2, ease, sec 0)]
+                hover &         color black
 
     "#logo" ** a ? do
         ".fa-circle" ? color (setA 0.3 "#fff")
@@ -90,12 +59,13 @@ htmlbody = body ? do
         hover & ".fa-home"   ? color "#000"
 
     section # "#content" ? do
-        background  softBgColor
-        padding     (em 1.7) contentSideMargin (em 2.7) contentSideMargin
-
+        background  (setA 0.2 textPanelColor)
+        ".row" ? do
+            background     (setA 0.3 textPanelColor)
+            borderBottom   solid strokeWidth flashy1BgColor
 
     section # "#footer" ? do
-        borderTop   solid strokeWidth flashy1BgColor
+
         color       "#555"
         fontSize    (px 12)
         padding     (em 2) contentSideMargin (em 7) contentSideMargin
@@ -115,19 +85,42 @@ htmlbody = body ? do
         fontSize    (px 14)
         fontStyle   italic
 
-    ".two-col" ? oneOrTwoColumns
-
     ".social" ? do
         textAlign   center
-        backgroundColor  "#fff"
-        padding     (em 1) contentSideMargin (em 1) contentSideMargin
-        fontSize    (px 30)
-        a ? do
+        a # ".icon" ? do
+            fontSize    (px 20)
             color       flashy2BgColor
             display     inlineBlock
             marginLeft  (px 10)
             marginRight (px 10)
-            hover & color "#000"
+            position    relative
+            transitions  [("color", sec 0.2, ease, sec 0), ("background-color", sec 0.2, ease, sec 0)]
+        a # ".icon" # hover ? do
+            color "#000"
+            after & do
+                right       (pct (- 50))
+                top         (px (- 41))
+                color       white
+                backgroundColor "#333"
+                fontSize   (px 14)
+                content    (attrContent "title")
+                display     block
+                padding     (px 5) (px 15) (px 5) (px 15)
+                position    absolute
+                whiteSpace  nowrap
+                borderRadius (px 2) (px 2) (px 2) (px 2)
+                boxShadow   0 0 (px 2) (rgba 0 0 0 0.2)
+                zIndex      1
+            before & do
+                top (px (- 14))
+                right (px 8)
+                borderStyle solid
+                borderColor4 "#333" transparent "#333" transparent
+                borderWidth4 (px 5) (px 5) 0 (px 5)
+                content (stringContent "")
+                display block
+                position absolute
+                zIndex 2
 
     ".clear" ? clear both
 

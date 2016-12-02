@@ -2,26 +2,37 @@
 title: Home
 ---
 
-<div class="two-col">
-    <div class="projects">
-        <h2>Welcome</h2>
+<div class="column three-quarters">
+    <h2>Welcome</h2>
 
-        <p>Welcome to my blog!</p>
+    <p>Welcome to my blog!</p>
 
-        <p>I've reproduced a list of recent posts here for your reading pleasure:</p>
+    <p>I've reproduced a list of recent posts here for your reading pleasure:</p>
 
-        <h2>Posts</h2>
-        $partial("templates/post-list.html")$
-
-        <p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
+    <h2>Posts</h2>
+    <div class="last-posts">
+        $for(posts)$
+            <article>
+                <h3><a href="$url$">$title$</a></h3>
+                <div class="info">$date$</div>
+            </article>
+        $endfor$
     </div>
 
-    <div class="social">
+
+    <p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
+</div>
+
+<div class="social column one-quarter">
+
+    <p><img src="/images/Paul.png" /></p>
+
+    <p><a href="mailto:paul@rosanbo.com"><i class="fa fa-enveloppe"></i>&nbsp;paul@rosanbo.com</a></p>
+    <p>
         <a href="https://www.github.com/polo2ro" title="Github"><i class="fa fa-github"></i></a>
         <a href="https://twitter.com/polo2ro" title="Twitter"><i class="fa fa-twitter"></i></a>
         <a href="https://framasphere.org/people/25627fe0aa67013296982a0000053625" title="Diaspora"><i class="fa fa-plus-circle"></i></a>
         <a href="https://fr.linkedin.com/in/paul-de-rosanbo-0177368a" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
-    </div>
-
-    <br class="clear" />
+        <a href="http://codepen.io/polo2ro/" title="CodePen"><i class="fa fa-codepen"></i></a>
+    </p>
 </div>
