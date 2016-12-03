@@ -31,6 +31,7 @@ htmlbody = body ? do
     fontSize                    (px 16)
     margin                      (px 0) auto (px 0) auto
     fontFamily                  ["Questrial"] [sansSerif]
+    lineHeight                  (em 1.6)
 
     "#header" ? do
         background              (setA 0.6 panelBgColor)
