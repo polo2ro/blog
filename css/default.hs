@@ -7,7 +7,7 @@ import Prelude (IO)
 bgColor, textColor, panelBgColor, textPanelColor, flashy1BgColor, flashy2BgColor :: Color
 
 bgColor             = "#dfe3e9"
-textColor           = "#383838"
+textColor           = "#4a4a4a"
 panelBgColor        = "#527883"
 textPanelColor      = "#FFFFFF"
 flashy1BgColor      = "#efd117"
