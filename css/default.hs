@@ -72,9 +72,11 @@ htmlbody = body ? do
         padding                 (em 2) contentSideMargin (em 7) contentSideMargin
         textAlign               (alignSide sideRight)
 
-    h1 ?                        fontSize (px 34)
+    h1 ? do
+        fontSize                (px 38)
+        textShadow              (px 3) (px 3) (px 0) (setA 0.22 black)
 
-    h2 ?                        fontSize (px 20)
+    h2 ? fontSize               (px 20)
 
     a ? do
         baseLink

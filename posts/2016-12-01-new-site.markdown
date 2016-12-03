@@ -1,0 +1,30 @@
+---
+title: New site
+author: Paul
+lang: en
+---
+
+
+## Used projets
+
+
+### [Cabal](https://www.haskell.org/cabal/)
+Cabal is the haskell package manager, this is to install hackyll and dependencies, it can create full working environement from scrach.
+
+### [Stack](https://www.haskellstack.org/)
+This is used to build the static site from source code.
+
+### [Hakyll](https://jaspervdj.be/hakyll/)
+Hakyll is a static site generator built in haskell.
+
+### [Clay](http://fvisser.nl/clay/)
+Clay is a CSS preprocessor, stylesheets are written in haskell, this is not a text parser like SASS or LESS but more like a [DSL language](https://en.wikipedia.org/wiki/Domain-specific_language).
+
+### [Bower](https://bower.io/)
+This is a package manager for front-end tools.
+
+### [Pills](http://arkpod.in/pills/)
+This is a simple CSS grid layout, used to organize the page in columns with mobile support.
+
+### [Font Awesome](http://fontawesome.io/)
+A library of icons.
