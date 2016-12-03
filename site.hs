@@ -27,11 +27,17 @@ main = hakyll $ do
         route   $ setExtension "css"
         compile $ getResourceString >>= withItemBody (unixFilter "runghc" [])
 
-    match (fromList ["about.markdown"]) $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+    match "about.html" $ do
+        route   idRoute
+        compile $ do
+            let aboutCtx =
+                    constField "title" "About"                  `mappend`
+                    defaultContext
+                    
+            getResourceBody
+                >>= applyAsTemplate aboutCtx
+                >>= loadAndApplyTemplate "templates/default.html" aboutCtx
+                >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
