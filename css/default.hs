@@ -6,16 +6,16 @@ import Prelude (IO)
 
 bgColor, textColor, panelBgColor, textPanelColor, flashy1BgColor, flashy2BgColor :: Color
 
-bgColor = "#dfe3e9"
-textColor = "#383838"
-panelBgColor = "#527883"
-textPanelColor = "#FFFFFF"
-flashy1BgColor = "#efd117"
-flashy2BgColor = "#f07135"
+bgColor             = "#dfe3e9"
+textColor           = "#383838"
+panelBgColor        = "#527883"
+textPanelColor      = "#FFFFFF"
+flashy1BgColor      = "#efd117"
+flashy2BgColor      = "#f07135"
 
 
-contentSideMargin = em 0.7
-strokeWidth = px 4
+contentSideMargin   = em 0.7
+strokeWidth         = px 4
 
 baseLink :: Css
 baseLink = do
@@ -136,7 +136,12 @@ htmlbody = body ? do
             marginTop           (em 0.2)
             marginBottom        (em 0.2)
             sym padding         (em 0.5)
+            borderStyle         solid
+            borderWidth4        0 0 0 (px 4)
+            borderColor         transparent
+            transitions         [("border-color", sec 0.8, ease, sec 0.2)]
             hover & do
+                borderColor     flashy2BgColor
                 h3 ? color      black
                 ".info" ? color black
 
