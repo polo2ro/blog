@@ -55,8 +55,7 @@ htmlbody = body ? do
         fontSize                (px 14)
         marginTop               (px 35)
         marginLeft              contentSideMargin
-        hover & ".fa-circle" ?  color (setA 0.3 "#fff")
-        hover & ".fa-home"   ?  color flashyColor1
+        hover & ".fa-home"   ?  color flashyColor2
 
     section # "#content" ? do
         background  (setA 0.2 textPanelColor)
@@ -75,6 +74,7 @@ htmlbody = body ? do
     h1 ? do
         fontSize                (px 38)
         textShadow              (px 3) (px 3) (px 0) (setA 0.22 black)
+        lineHeight              (em 1.4)
 
     h2 ? fontSize               (px 20)
 
@@ -100,8 +100,8 @@ htmlbody = body ? do
             fontSize            (px 20)
             color               flashyColor2
             display             inlineBlock
-            marginLeft          (px 5)
-            marginRight         (px 5)
+            marginLeft          (px 4)
+            marginRight         (px 3)
             position            relative
             transitions         [("color", sec 0.2, ease, sec 0), ("background-color", sec 0.2, ease, sec 0)]
         ".icons" |> a # hover ? do
