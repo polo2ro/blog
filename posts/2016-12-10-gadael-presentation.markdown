@@ -5,6 +5,7 @@ author: Paul
 
 _[French version available on medium](https://medium.com/@paul.derosanbo/presentation-du-projet-gadael-751d8aae0274)_
 
+![Gadael.com page preview](/images/gadael-header.png)
 
 ## Service Objectives
 

@@ -88,6 +88,13 @@ htmlbody = body ? do
         fontSize                (px 14)
         fontStyle               italic
 
+    article ** ".caption" ? do
+        color                   "#555"
+        fontSize                (px 12)
+        fontStyle               italic
+        textAlign               center
+        marginTop               (px 0)
+
     -- Social icons with custom tooltip
     ".social" ? do
         textAlign               center
