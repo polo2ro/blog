@@ -3,6 +3,8 @@ title: Gadael.com project introduction
 author: Paul
 ---
 
+_[French version available on medium](https://medium.com/@paul.derosanbo/presentation-du-projet-gadael-751d8aae0274)_
+
 
 ## Service Objectives
 
@@ -20,36 +22,34 @@ The application once created in the subdomain allows to create accounts and mana
 
 Gadael allows management of leave requests, working-time recovery requests, time saving accounts, different types of balance consumption for part-time workschedules. Several configurable levels of approval, display of calendars by services or personal calendars. Seniority rights, country specific rights, etc.
 
-
-Administrators must set up leave rights and managers must validate user requests. Roles may be accumulated if necessary.
+Administrators must set up leave rights and managers have to validate user requests. Roles may be cumulated if necessary.
 
 The application has been developed to meet the needs of companies of all sizes and was conceived from the start to manage collaborators spread across several countries.
 
-The other strength of Gadael lies in the management of planning and the historization of what has been done. Changes in work patterns and patterns may be planned in advance and the balance of entitlements can be exported as it was at an earlier date.
+The other strength of Gadael lies in the management of planning and the historization of what has been done. Changes in work schedules and leave right collections may be planned in advance and the balance of entitlements can be exported as it was at an earlier date.
 
-Gadael can integrate into an existing information system, so connectors have been developed so that periods of absence are visible in Google Calendar calendars. Similarly it is possible to authenticate with a google account.
+Gadael can integrate into an existing information system, so connectors have been developed so that periods of absence are visible in Google Calendar. Similarly it is possible to authenticate with a google account.
 
-To facilitate the production of pay slips, it is possible to export the paid vacation periods of the month either in Excel format or in Sage Paie format.
+To facilitate the production of pay slips, it is possible to export the paid vacation periods of the month either in Excel format or in [Sage](http://www.sage.fr/fr/logiciels/paie-ressources-humaines#bas-de-page-paie) format.
 
 
 ## Moral Commitment
 
-The hosting of the solution is planned in "software as a service" mode but with the following commitments:
+This is a software as a service but with the following commitments:
 
-* It is possible to host yourself the same application without restriction, as it is in free license.
-* It should be possible to migrate the data to another host at any time and delete its account.
-* Access to pay mode must not change the functional level of the application because only one version of the software exists.
+* It is possible to host yourself the same application without restriction, it is an open-source software.
+* It should be possible to migrate the data to another host at any time and delete your account.
+* Access to paid plan must not change the application functionalities because only one version of the software exists.
 * No ads will be displayed on the application.
 * User data will not be exploited or resold. If a newsletter is to be added later, it must be the subject of an additional registration.
 
-In large part, these commitments correspond to charter by the french initiative "les chatons". At the moment, membership in this network is not foreseen because the commitments they entail require more investment.
+In large part, these commitments match to the charter by the [french initiative "les chatons"](https://chatons.org/). At the moment, membership in this network is not foreseen because the commitments they entail require more investment.
 
 
 ## More information
 
-The software Gadael is published under MIT license, I am the author of the software and the owner of the site gadael.com which will eventually propose the solution SAAS hosting.
+The Gadael software is published under MIT license, I am the software author and the owner of the site gadael.com which will eventually propose the SAAS hosting solution.
 
-* Free gadael software on github
-* My personal website
+The [gadael software on github](https://github.com/gadael/gadael)
 
 Gadael is a word that means departure, holiday or absence in Irish Gaelic.
