@@ -21,3 +21,4 @@ cabal.project.local
 _site/*
 _cache/*
 bower_components/*
+publish.sh
