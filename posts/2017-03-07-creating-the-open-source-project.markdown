@@ -10,9 +10,9 @@ The first tests on debian are proving good.
 
 ## packages creation with fpm
 
-A simple command to create the nodejs application package but with a configuration file in /etc/gadael/config.json
+[fpm](https://github.com/jordansissel/fpm) is a package manager who can create simpes packages for multiples plateformes. I will use it to create the debian package (.deb) and the centOs/redhat package (.rpm).
 
-In the repository, i created a dist/ folder with the config.json sample file. Then the fpm command set position of the files:
+Here is a simple command to create the nodejs application package but with a configuration file in /etc/gadael/config.json. In the repository, i created a dist/ folder with the config.json sample file. Then the fpm command set position of the files:
 
 ```
 fpm -s dir -t deb -p ../ -n gadael --config-files /etc/gadael/config.json -v "0.0.1" ./=/var/lib/gadael dist/config.json=/etc/gadael/
