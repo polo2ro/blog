@@ -15,7 +15,10 @@ The first tests on debian are proving good.
 Here is a simple command to create the nodejs application package but with a configuration file in /etc/gadael/config.json. In the repository, i created a dist/ folder with the config.json sample file. Then the fpm command set position of the files:
 
 ```
-fpm -s dir -t deb -p ../ -n gadael --config-files /etc/gadael/config.json -v "0.0.1" ./=/var/lib/gadael dist/config.json=/etc/gadael/
+fpm -s dir -t deb -p ../ -n gadael --config-files /etc/gadael/config.json \
+-v "0.0.1" \
+./=/var/lib/gadael \
+dist/config.json=/etc/gadael/
 ```
 
 * `-p ../` is the folder where the package will be saved
@@ -30,4 +33,4 @@ Then come the file path pattern matching magic:
 
 ## Website with hexo
 
-With hexo, i have built 2 sites, the SaaS version hosted on [gadael.com](https://www.gadael.com/) and the open-source application wesite on [gadael.org](http://www.gadael.org/).
+With hexo, i have built 2 sites, the SaaS version hosted on [gadael.com](https://www.gadael.com/) and the open-source application website on [gadael.org](http://www.gadael.org/).
