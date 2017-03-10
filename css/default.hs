@@ -11,7 +11,6 @@ panelBgColor        = "#527883"
 textPanelColor      = "#FFFFFF"
 flashyColor1        = "#efd117"
 flashyColor2        = "#f07135"
-sndColor            = rgb 56 135 190
 
 contentSideMargin   = em 0.7
 strokeWidth         = px 4
@@ -29,17 +28,22 @@ codeFont = do
     fontFamily     ["Monaco", "Courier New"] [monospace]
     textRendering  optimizeLegibility
 
+inlineCode :: Css
+inlineCode = do
+    shell
+    padding           (px 2) (px 4) (px 2) (px 4)
+    marginLeft        (px 2)
+    marginRight       (px 2)
+    background        (panelBgColor -. 20)
+    color             white
+    sym borderRadius  (px 4)
+    codeFont
 
 codeblocks :: Css
 codeblocks = do
 
-    p |> code ? do
-        shell
-        sym padding       (px 2)
-        background        panelBgColor
-        color             white
-        sym borderRadius  (px 4)
-        codeFont
+    p |> code ?     inlineCode
+    li |> code ?    inlineCode
 
     div # ".sourceCode" |> pre ? do
         sym margin (px 0)
@@ -50,7 +54,7 @@ codeblocks = do
         marginTop         (px 30)
         marginBottom      (px 30)
         boxShadow         0 0 (px 30) (setA 0.3 black)
-        background        (panelBgColor -. 60)
+        background        (panelBgColor -. 40)
         color             (setA 160 white)
         sym borderRadius  (px 2)
 
