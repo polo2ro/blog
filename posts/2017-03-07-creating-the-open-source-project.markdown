@@ -14,7 +14,7 @@ The first tests on debian are proving good.
 
 Here is a simple command to create the nodejs application package but with a configuration file in /etc/gadael/config.json. In the repository, i created a dist/ folder with the config.json sample file. Then the fpm command set position of the files:
 
-```
+```bash
 fpm -s dir -t deb -p ../ -n gadael --config-files /etc/gadael/config.json \
 -v "0.0.1" \
 ./=/var/lib/gadael \
@@ -30,7 +30,9 @@ Then come the file path pattern matching magic:
 
 `dist/config.json=/etc/gadael/`: the file config.json will be copied in /etc/gadael/.
 
+The remaining missing parameters are to set the dependencies.
+
 
 ## Website with hexo
 
-With hexo, i have built 2 sites, the SaaS version hosted on [gadael.com](https://www.gadael.com/) and the open-source application website on [gadael.org](http://www.gadael.org/).
+With [hexo](https://hexo.io/), i have built 2 sites, the SaaS version hosted on [gadael.com](https://www.gadael.com/) and the open-source application website on [gadael.org](http://www.gadael.org/).

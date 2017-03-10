@@ -3,7 +3,6 @@ import Clay
 import qualified Clay.Media as Media
 import Prelude (IO)
 
-
 bgColor, textColor, panelBgColor, textPanelColor, flashyColor1, flashyColor2 :: Color
 
 bgColor             = "#dfe3e9"
@@ -12,7 +11,7 @@ panelBgColor        = "#527883"
 textPanelColor      = "#FFFFFF"
 flashyColor1        = "#efd117"
 flashyColor2        = "#f07135"
-
+sndColor            = rgb 56 135 190
 
 contentSideMargin   = em 0.7
 strokeWidth         = px 4
@@ -23,9 +22,70 @@ baseLink = do
     textDecoration none
 
 
+-- Font used for code blocks.
+codeFont :: Css
+codeFont = do
+    fontSize       (px 15)
+    fontFamily     ["Monaco", "Courier New"] [monospace]
+    textRendering  optimizeLegibility
+
+
+codeblocks :: Css
+codeblocks = do
+
+    p |> code ? do
+        shell
+        sym padding       (px 2)
+        background        panelBgColor
+        color             white
+        sym borderRadius  (px 4)
+        codeFont
+
+    div # ".sourceCode" |> pre ? do
+        sym margin (px 0)
+        codeFont
+        boxSizing         borderBox
+        overflowX         auto
+        sym padding       (px 20)
+        marginTop         (px 30)
+        marginBottom      (px 30)
+        boxShadow         0 0 (px 30) (setA 0.3 black)
+        background        (panelBgColor -. 60)
+        color             (setA 160 white)
+        sym borderRadius  (px 2)
+
+        -- Specific styling for different languages.
+
+        ".haskell" & haskell
+        ".sh"      & shell
+        ".bash"    & shell
+
+
+haskell :: Css
+haskell = do
+    ".co"  ? color lightpink
+    ".dt"  ? color (panelBgColor +. 90)
+    ".fu"  ? color orange
+    ".kw"  ? color lime
+    ".dv"  ? color (setG 100 orange)
+    ".st"  ? color (red +. 100)
+    ".ot"  ? color violet
+
+shell :: Css
+shell = do
+    ".ex"  ? color orange
+    ".st"  ? color (setA 170 lime)
+
+
+
+
+
 
 htmlbody :: Css
 htmlbody = body ? do
+
+    codeblocks
+
     background                  bgColor
     color                       textColor
     fontSize                    (px 16)
