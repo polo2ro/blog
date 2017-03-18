@@ -30,9 +30,37 @@ Then come the file path pattern matching magic:
 
 `dist/config.json=/etc/gadael/`: the file config.json will be copied in /etc/gadael/.
 
-The remaining missing parameters are to set the dependencies.
+The remaining missing parameters are to set the dependencies, for this, i used the `-d` parameter.
+The most interesting part of this software is that it is easy to create packages in other format using almost the same command.
+
+Here is the full example with .dev and .rpm:
+
+```bash
+# Build debian package
+
+fpm -s dir -t deb -p ../ -n gadael \
+    --config-files /etc/gadael/config.json \
+    -v $1 \
+    -d "mongodb > 2.4.14" \
+    -d "nodejs > 4.4.0" \
+    ./=/var/lib/gadael dist/config.json=/etc/gadael/
+
+# Build rpm package
+
+fpm -s dir -t rpm -p ../ -n gadael \
+    --config-files /etc/gadael/config.json \
+    -v $1 \
+    -d "mongodb > 2.4.14" \
+    -d "nodejs > 4.4.0" \
+    ./=/var/lib/gadael dist/config.json=/etc/gadael/
+
+```
+
+This file [build.sh is here](https://github.com/gadael/gadael/blob/master/dist/build.sh).
 
 
 ## Website with hexo
+
+An open-source software need a website, gadael.org will be a domain dedicated to the open-source version, for now, this is a single page.
 
 With [hexo](https://hexo.io/), i have built 2 sites, the SaaS version hosted on [gadael.com](https://www.gadael.com/) and the open-source application website on [gadael.org](http://www.gadael.org/).
