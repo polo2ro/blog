@@ -36,23 +36,24 @@ The most interesting part of this software is that it is easy to create packages
 Here is the full example with .dev and .rpm:
 
 ```bash
+
 # Build debian package
 
 fpm -s dir -t deb -p ../ -n gadael \
     --config-files /etc/gadael/config.json \
     -v $1 \
     -d "mongodb > 2.4.14" \
-    -d "nodejs > 4.4.0" \
-    ./=/var/lib/gadael dist/config.json=/etc/gadael/
+    -d "nodejs-legacy > 4.2.0" \
+    ./=/var/lib/gadael dist/config.json=/etc/gadael/ dist/gadael.service=/etc/systemd/system/
 
 # Build rpm package
 
 fpm -s dir -t rpm -p ../ -n gadael \
     --config-files /etc/gadael/config.json \
     -v $1 \
-    -d "mongodb > 2.4.14" \
-    -d "nodejs > 4.4.0" \
-    ./=/var/lib/gadael dist/config.json=/etc/gadael/
+    -d "mongodb-org > 2.4.14" \
+    -d "nodejs > 4.2.0" \
+    ./=/var/lib/gadael dist/config.json=/etc/gadael/ dist/gadael.service=/etc/systemd/system/
 
 ```
 
