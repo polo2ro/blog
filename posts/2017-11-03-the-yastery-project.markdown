@@ -1,13 +1,22 @@
+---
+title: The yastery project
+author: Paul
+lang: en
+---
+
 My latest development project is a website linking influencers and brands or agencies.
+
+![yastery app, communication campaigns](/images/screenshot-yastery.png)
+
 This is [yastery.com](https://www.yastery.com). With a blank page start, I made some interesting technical choices:
 
 ## Full typescript
 
 the frontend is powered by angular 4 so this is a logical choice. to use the same language everywhere i used typescript with nodejs on the backend. Unit tests on the backend are also in typescript with the help of [ava](https://github.com/avajs/ava) for more speed.
 
-For development, there is one config file to compile the project excluding node_modules and for production, another config file exclude the `spec/` subfolder.
-
 I am satisfied with this setup, code get very similar especially for the interfaces, i can copy/paste the fields on update.
+
+The [previous blog entry](/posts/2017-07-29-typescript-configuration.html) is about the typescript configuration.
 
 ## Split front and back in two repositories
 
