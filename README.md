@@ -10,7 +10,7 @@ If code from site.hs is modified, a rebuid is necessary:
     stack build
     stack exec site rebuild
 
-A publish.sh file si created on repository root with:
+A publish.sh file is created on repository root with:
 
     #!/bin/bash
     rsync -r --delete-excluded --size-only --rsh='ssh -p{ssh port}' --progress _site/ {ssh path to folder}
